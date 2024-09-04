@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .modal.slide-in {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: auto;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    
+    .modal.slide-in.show {
+      transform: translateX(0);
+    }
+
+</style>
+<div class="container">
+    <h3 class="alert alert-info text-center">Land Property List</h3>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#filterModal">
+        Filter
+      </button>
+      <div class="modal slide-in" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="filterModalLabel">Filter Options</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Resale" id="Resale">
+                    <label class="form-check-label" for="Resale">
+                      Resale
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Rent" id="Rent">
+                    <label class="form-check-label" for="Rent">
+                      Rent
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Lease" id="Lease">
+                    <label class="form-check-label" for="Lease">
+                      Lease
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="reset" class="btn btn-warning">Reset</button>
+              <button type="submit" class="btn btn-primary" onclick="LandFilter()">Apply Filters</button>
+            </div>
+        </form>
+          </div>
+        </div>
+      </div>  
+    <div class="row">
+        {% for i in land_properties %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{% static 'images/land.png' %}" alt="" class="card-img-top">
+                <div class="card-body">                    
+                    <p class="card-title">For: <button class="btn btn-info text-white">{{ i.Type }}</button></p>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Cent:{{ i.Cent }}</li>
+                <li class="list-group-item">Price:{{ i.TotalPrice }}</li>
+                <li class="list-group-item">Place:{{ i.Street }}</li>
+              </ul>
+              <div class="card">
+                <a href="#" class="btn btn-primary view" name="{{ i.id }}">View Property Details</a>
+              </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+<script src="{% static 'js/landView.js' %}"></script>
+{% endblock %}
+
+
+
+
+

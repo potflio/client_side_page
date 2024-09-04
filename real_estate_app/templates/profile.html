@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="container">
+    <h3 class="alert alert-info text-center">Profile</h3>
+    <div class="row">
+        <div class="col-12">
+            <div class="text-center">
+                <img src="{% static 'images/default_profile_image.jpg' %}" alt="profile_image" class="img-fluid img-thumbnail w-10">
+            </div>
+            <form action="">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" name="email" class="form-control" value="{{ email }}" disabled>
+            </form>
+        </div>
+    </div><hr>
+</div>
+
+{% endblock %}

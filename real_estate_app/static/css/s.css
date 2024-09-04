@@ -1,0 +1,19 @@
+.imageWrapper img {
+    cursor: pointer;
+    object-fit: cover;
+    width: 150px;
+    height: 150px;
+}
+.zoomedImage {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    z-index: 1000;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    overflow: auto;
+    cursor: zoom-out;
+}

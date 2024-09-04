@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container my-4">
+    <div class="row">
+        <h2 class="alert alert-info text-center">{{ member.Type }} details for this Property</h2>
+        <div class="col-md-6">
+            <img src="{% static 'gif/information_tab.gif' %}" class="img-fluid" alt="Information Tab">
+        </div>
+        <div class="col-md-4">
+            <form>
+                {% csrf_token %}
+                {% if "Resale" == member.Type %}
+                <div class="form-group mb-3">
+                    <label for="Length">Length</label>
+                    <input type="text" id="Length" class="form-control" value="{{ member.Length }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="Width">Width</label>
+                    <input type="text" id="Width" class="form-control" value="{{ member.Width }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="PlotArea">PlotArea</label>
+                    <input type="text" id="PlotArea" class="form-control" value="{{ member.PlotArea }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="Cent">Cent</label>
+                    <input type="text" id="Cent" class="form-control" value="{{ member.Cent }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="Acre">Acre</label>
+                    <input type="text" id="Acre" class="form-control" value="{{ member.Acre }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="District">District</label>
+                    <input type="text" id="District" class="form-control" value="{{ member.District }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="Town">Town</label>
+                    <input type="text" id="Town" class="form-control" value="{{ member.Town }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="Street">Street</label>
+                    <input type="text" id="Street" class="form-control" value="{{ member.Street }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="PricePerCent">Price Per Cent</label>
+                    <input type="text" class="form-control" value="{{ member.PricePerCent }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="PricePerSquareFeet">Price Per Square Feet</label>
+                    <input type="text" class="form-control" value="{{ member.PricePerSquareFeet }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="TotalPrice">Total Price</label>
+                    <input type="text" class="form-control" value="{{ member.TotalPrice }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="Description">Description</label>
+                    <textarea id="" class="form-control" disabled>{{ member.Description }}</textarea>
+                </div>
+                {% elif "Rent" == member.Type %}
+
+                <div class="form-group mb-3">
+                    <label for="Length">Length</label>
+                    <input type="text" id="Length" class="form-control" value="{{ member.Length }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="Width">Width</label>
+                    <input type="text" id="Width" class="form-control" value="{{ member.Width }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="PlotArea">PlotArea</label>
+                    <input type="text" id="PlotArea" class="form-control" value="{{ member.PlotArea }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="Cent">Cent</label>
+                    <input type="text" id="Cent" class="form-control" value="{{ member.Cent }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="Acre">Acre</label>
+                    <input type="text" id="Acre" class="form-control" value="{{ member.Acre }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="District">District</label>
+                    <input type="text" id="District" class="form-control" value="{{ member.District }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="Town">Town</label>
+                    <input type="text" id="Town" class="form-control" value="{{ member.Town }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="Street">Street</label>
+                    <input type="text" id="Street" class="form-control" value="{{ member.Street }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="ExpectedRent">Expected Rent</label>
+                    <input type="text" id="ExpectedRent" class="form-control" value="{{ member.ExpectedRent }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="ExpectedDepositMonths">Expected Deposit Months</label>
+                    <input type="text" id="ExpectedDepositMonths" class="form-control" value="{{ member.ExpectedDepositMonths }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="ExpectedDeposit">Expected Deposit</label>
+                    <input type="text" id="ExpectedDeposit" class="form-control" value="{{ member.ExpectedDeposit }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="Maintenance">Maintenance</label>
+                    <input type="text" id="Maintenance" class="form-control" value="{{ member.Maintenance }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="Terms">Terms</label>
+                    <textarea name="Terms" id="" class="form-control" disabled>{{ member.Terms }}</textarea>
+                </div>
+
+                {% else %}
+
+                <div class="form-group mb-3">
+                    <label for="Length">Length</label>
+                    <input type="text" id="Length" class="form-control" value="{{ member.Length }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="Width">Width</label>
+                    <input type="text" id="Width" class="form-control" value="{{ member.Width }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="PlotArea">PlotArea</label>
+                    <input type="text" id="PlotArea" class="form-control" value="{{ member.PlotArea }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="Cent">Cent</label>
+                    <input type="text" id="Cent" class="form-control" value="{{ member.Cent }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="Acre">Acre</label>
+                    <input type="text" id="Acre" class="form-control" value="{{ member.Acre }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="District">District</label>
+                    <input type="text" id="District" class="form-control" value="{{ member.District }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="Town">Town</label>
+                    <input type="text" id="Town" class="form-control" value="{{ member.Town }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="Street">Street</label>
+                    <input type="text" id="Street" class="form-control" value="{{ member.Street }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="ExpectedLease">Expected Lease</label>
+                    <input type="text" id="ExpectedLease" class="form-control" value="{{ member.ExpectedLease }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="ExpectedLeaseDuration">Expected Lease Duration</label>
+                    <input type="text" id="ExpectedLeaseDuration" class="form-control" value="{{ member.ExpectedLeaseDuration }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="Maintenance">Maintenance</label>
+                    <input type="text" id="Maintenance" class="form-control" value="{{ member.Maintenance }}" disabled>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="Terms">Terms</label>
+                    <input type="text" id="Terms" class="form-control" value="{{ member.Terms }}" disabled>
+                </div>
+
+
+                {% endif %}
+                <button type="button" class="btn btn-primary send" name="{{ member.id }}">Interested</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
